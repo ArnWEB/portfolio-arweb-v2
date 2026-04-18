@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-4 md:px-8 py-3 md:py-4">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-4 md:px-8 py-2 md:py-4">
         <div className="text-lg md:text-xl font-bold tracking-tight text-on-background font-heading uppercase cursor-pointer" onClick={() => scrollToSection('home')}>
           ARNAB_KUNDU
         </div>
@@ -58,7 +58,7 @@ export default function Navbar() {
       </nav>
       
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[52px] z-40 bg-white/95 backdrop-blur-xl md:hidden">
+        <div className="fixed inset-0 top-[48px] z-40 bg-white/95 backdrop-blur-xl md:hidden">
           <div className="flex flex-col p-4 gap-4">
             {navLinks.map((link) => (
               <button 
