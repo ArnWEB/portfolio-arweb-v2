@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  
+  --color-primary: #006859;
+  --color-secondary: #006761;
+  --color-tertiary: #006382;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f0f0f0;
+  --color-surface-container: #f1f3f4;
+  --color-surface-container-low: #f8f9fa;
+  --color-surface-container-high: #e9ecef;
+  --color-surface-container-highest: #e9ecef;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-background: #1a1a1a;
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #4a4a4a;
+  --color-outline: #787676;
+  --color-outline-variant: #ced4da;
+}
+
+:root {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-on-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 104, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 104, 89, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.site-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 104, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 104, 89, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.technical-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 104, 89, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 104, 89, 0.05) 1px, transparent 1px);
+}
+
+.technical-grid-fine {
+  background-size: 10px 10px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 104, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 104, 89, 0.03) 1px, transparent 1px);
+}
+
+.power-rail {
+  position: relative;
+}
+
+.power-rail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 2px;
+  background-color: var(--color-primary);
+}
+
+.kinetic-gradient {
+  background: linear-gradient(135deg, #006859 0%, #00b8a3 100%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+body {
+  margin: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0, 104, 89, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 104, 89, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+* {
+  box-sizing: border-box;
+}

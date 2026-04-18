@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KINETIC_CORE // Lead Architect Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            /* pure white background */
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #006859 0%, #00b8a3 100%);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        .power-rail {
+            position: relative;
+        }
+
+        .power-rail::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 2px;
+            background-color: #006859;
+            /* primary */
+        }
+
+        /* Technical Grid Overlay */
+        .technical-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(0, 104, 89, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 104, 89, 0.05) 1px, transparent 1px);
+        }
+
+        .technical-grid-fine {
+            background-size: 10px 10px;
+            background-image:
+                linear-gradient(to right, rgba(0, 104, 89, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 104, 89, 0.03) 1px, transparent 1px);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#09c4fd",
+                        "surface": "#ffffff",
+                        "surface-container-low": "#f8f9fa",
+                        "tertiary": "#006382",
+                        "on-error": "#ffefee",
+                        "on-primary-container": "#00594c",
+                        "background": "#ffffff",
+                        "on-tertiary-fixed": "#00212e",
+                        "on-primary-fixed-variant": "#006455",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1a1a", /* deep charcoal */
+                        "outline": "#787676",
+                        "secondary": "#006761",
+                        "tertiary-dim": "#005672",
+                        "on-secondary-fixed-variant": "#005d58",
+                        "surface-dim": "#f0f0f0",
+                        "secondary-container": "#1cede1",
+                        "inverse-on-surface": "#9e9c9c",
+                        "on-secondary-fixed": "#003d3a",
+                        "inverse-surface": "#0e0e0e",
+                        "primary": "#006859",
+                        "primary-fixed": "#12f8d7",
+                        "error-dim": "#9f0519",
+                        "on-primary-fixed": "#00443a",
+                        "surface-tint": "#006859",
+                        "on-surface": "#1a1a1a",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f1f3f4",
+                        "on-tertiary-container": "#00394d",
+                        "surface-container-highest": "#e9ecef",
+                        "surface-bright": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4a4a4a",
+                        "secondary-dim": "#005a55",
+                        "tertiary-fixed": "#09c4fd",
+                        "outline-variant": "#ced4da",
+                        "inverse-primary": "#26fedc",
+                        "error-container": "#fb5151",
+                        "primary-dim": "#005a4d",
+                        "on-secondary-container": "#00534e",
+                        "surface-container-high": "#e9ecef",
+                        "on-error-container": "#570008",
+                        "primary-container": "#006859",
+                        "secondary-fixed": "#1cede1",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e9ecef",
+                        "secondary-fixed-dim": "#00ded3",
+                        "on-tertiary-fixed-variant": "#004359",
+                        "error": "#b31b25",
+                        "tertiary-fixed-dim": "#00b6eb",
+                        "primary-fixed-dim": "#00e8c9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    }
+                },
+            }
+        }
+    </script>
+</head>
+
+<body class="text-on-background bg-surface selection:bg-primary/20 selection:text-primary">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-8 py-4 max-w-full">
+        <div class="text-xl font-black tracking-tighter text-on-background font-['Space_Grotesk'] uppercase">
+            KINETIC_CORE
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-primary border-b-2 border-primary pb-1 font-['Space_Grotesk'] tracking-tight text-sm uppercase font-bold"
+                href="#systems">Systems</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-bold"
+                href="#architectures">Architectures</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-bold"
+                href="#neural-labs">Neural_Labs</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-['Space_Grotesk'] tracking-tight text-sm uppercase font-bold"
+                href="#documentation">Documentation</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <span
+                class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded transition-all duration-300 cursor-pointer"
+                data-icon="terminal">terminal</span>
+            <span
+                class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded transition-all duration-300 cursor-pointer"
+                data-icon="settings">settings</span>
+            <button
+                class="bg-primary px-4 py-2 text-white font-bold text-xs uppercase tracking-widest rounded-sm scale-95 active:scale-90 transition-transform">Hire_Lead</button>
+        </div>
+    </nav>
+    <!-- SideNavBar -->
+    <aside
+        class="hidden md:flex h-screen w-20 hover:w-64 transition-all duration-500 fixed left-0 top-0 z-40 border-r border-outline-variant/30 bg-white/90 backdrop-blur-lg flex flex-col py-20 items-center overflow-hidden group">
+        <div class="flex flex-col items-center mb-12 group-hover:px-6 transition-all">
+            <div class="w-12 h-12 bg-surface-container-high rounded-full overflow-hidden border-2 border-primary">
+                <img alt="Lead Architect" class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida/ADBb0uiiAR2F20iMpUrqa3ZOq0nQ2J4pbmcM2DLuABsKxQ3hhDOQ_svsE60llf0UDseQHdi-a1oIL-i2JfhUPwmk2Is15Aat9ujduhbuvzcLnostQkw2RZPMuoQGQC2zDhL8GigyA4nc3_nBTJC7E3WLvxl1I3_KrFk0wCY3j9cRueNr3SdooCXvtc-33qxs-dJHKdqjZaUoUBlxm8YIsZ81ALTW3LBqfzbB1O-HBn00oKYJhBy_FmZZtRLvyWLkHHZR5_-UrDRM30kaVFQ" />
+            </div>
+            <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-center">
+                <p class="font-headline text-sm font-bold text-on-surface">Lead_Architect</p>
+                <p class="font-body text-[10px] text-primary uppercase tracking-tighter">System_Active</p>
+            </div>
+        </div>
+        <div class="flex flex-col gap-8 w-full">
+            <div
+                class="flex items-center px-6 gap-4 bg-primary/5 text-primary border-l-4 border-primary py-3 cursor-pointer">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span
+                    class="opacity-0 group-hover:opacity-100 transition-opacity font-['Inter'] text-xs font-medium tracking-wide uppercase">Overview</span>
+            </div>
+            <div
+                class="flex items-center px-6 gap-4 text-on-surface-variant hover:text-primary py-3 cursor-pointer hover:translate-x-1 transition-transform">
+                <span class="material-symbols-outlined" data-icon="tune">tune</span>
+                <span
+                    class="opacity-0 group-hover:opacity-100 transition-opacity font-['Inter'] text-xs font-medium tracking-wide uppercase">Parameters</span>
+            </div>
+            <div
+                class="flex items-center px-6 gap-4 text-on-surface-variant hover:text-primary py-3 cursor-pointer hover:translate-x-1 transition-transform">
+                <span class="material-symbols-outlined" data-icon="description">description</span>
+                <span
+                    class="opacity-0 group-hover:opacity-100 transition-opacity font-['Inter'] text-xs font-medium tracking-wide uppercase">Log_Files</span>
+            </div>
+            <div
+                class="flex items-center px-6 gap-4 text-on-surface-variant hover:text-primary py-3 cursor-pointer hover:translate-x-1 transition-transform">
+                <span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                <span
+                    class="opacity-0 group-hover:opacity-100 transition-opacity font-['Inter'] text-xs font-medium tracking-wide uppercase">Diagnostics</span>
+            </div>
+        </div>
+        <div class="mt-auto pb-8 w-full px-4 group-hover:opacity-100 opacity-0 transition-opacity">
+            <button
+                class="w-full bg-primary text-white py-3 text-[10px] font-bold uppercase tracking-widest rounded-sm">Initialize_Session</button>
+        </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="md:pl-20">
+        <!-- HERO SECTION -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden bg-white">
+            <!-- Technical Grid Overlays -->
+            <div class="absolute inset-0 technical-grid opacity-100 z-0"></div>
+            <div class="absolute inset-0 technical-grid-fine opacity-100 z-0"></div>
+            <!-- Subtle Radial Gradient to match video vibes -->
+            <div
+                class="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(255,255,255,0.8)_100%)]">
+            </div>
+            <!-- Pixar-style Character Reference -->
+            <div
+                class="absolute right-0 bottom-0 md:right-[5%] md:bottom-0 w-[60%] md:w-[45%] z-20 pointer-events-none">
+                <img alt="AI Architect Character" class="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,104,89,0.15)]"
+                    src="https://lh3.googleusercontent.com/aida/ADBb0uiiAR2F20iMpUrqa3ZOq0nQ2J4pbmcM2DLuABsKxQ3hhDOQ_svsE60llf0UDseQHdi-a1oIL-i2JfhUPwmk2Is15Aat9ujduhbuvzcLnostQkw2RZPMuoQGQC2zDhL8GigyA4nc3_nBTJC7E3WLvxl1I3_KrFk0wCY3j9cRueNr3SdooCXvtc-33qxs-dJHKdqjZaUoUBlxm8YIsZ81ALTW3LBqfzbB1O-HBn00oKYJhBy_FmZZtRLvyWLkHHZR5_-UrDRM30kaVFQ" />
+            </div>
+            <div
+                class="relative z-30 container mx-auto px-8 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl">
+                    <div
+                        class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-6">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        <span
+                            class="text-primary font-label text-[10px] uppercase tracking-[0.2em] font-bold">System_Online
+                            // 0.9.4v</span>
+                    </div>
+                    <h1 class="text-on-background text-5xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                        I build real-time <span class="text-primary">AI systems</span> that actually work.
+                    </h1>
+                    <p
+                        class="text-on-surface-variant text-lg md:text-xl font-body max-w-lg mb-10 border-l-2 border-primary pl-6">
+                        Computer Vision • ROS2 • VLM • End-to-end systems from edge to cloud. Engineered for precision.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="kinetic-gradient text-white px-8 py-4 text-xs font-bold uppercase tracking-widest flex items-center gap-2 group transition-all duration-300 active:scale-95 shadow-lg shadow-primary/20">
+                            Explore Projects
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+                                data-icon="arrow_forward">arrow_forward</span>
+                        </button>
+                        <button
+                            class="bg-surface-container hover:bg-surface-container-high text-on-background px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all border border-outline-variant/30">
+                            System Architecture
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30 opacity-50">
+                <span class="text-on-surface-variant text-[10px] uppercase tracking-widest">Scroll to Traverse</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+            </div>
+        </section>
+        <!-- FEATURED WORK -->
+        <section class="py-24 px-8 lg:px-20 bg-surface" id="systems">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="text-primary font-headline text-xs font-bold uppercase tracking-widest">01 //
+                            PROTOTYPES</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mt-2 text-on-background tracking-tighter">Featured
+                            Work</h2>
+                    </div>
+                    <div class="max-w-md">
+                        <p class="text-on-surface-variant text-sm font-body leading-relaxed">
+                            A curated selection of autonomous systems deployed in production-grade environments,
+                            leveraging high-frequency data loops and precision engineering.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <!-- Project 1 -->
+                    <div
+                        class="md:col-span-8 group bg-surface-container-low p-8 rounded-lg power-rail overflow-hidden relative border border-outline-variant/30 hover:border-primary/30 transition-colors">
+                        <div class="flex flex-col h-full justify-between relative z-10">
+                            <div>
+                                <div class="flex gap-2 mb-4">
+                                    <span
+                                        class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded font-bold">CV_VISION</span>
+                                    <span
+                                        class="bg-surface-container-high text-on-surface-variant text-[10px] px-2 py-0.5 rounded font-bold">TENSOR_RT</span>
+                                </div>
+                                <h3 class="text-3xl font-bold mb-4 font-headline text-on-background">Project_Nexus:
+                                    Autonomous Warehouse Fleet</h3>
+                                <p class="text-on-surface-variant text-sm max-w-md">Deploying ROS2-based swarm
+                                    intelligence for multi-agent coordination in high-latency environments.</p>
+                            </div>
+                            <div class="mt-12 flex gap-12 items-center">
+                                <div>
+                                    <p class="text-xs text-primary font-bold uppercase tracking-tighter">Throughput</p>
+                                    <p class="text-2xl font-headline font-bold text-on-background">1.2 GB/s</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-primary font-bold uppercase tracking-tighter">Latency</p>
+                                    <p class="text-2xl font-headline font-bold text-on-background">&lt; 15ms</p>
+                                </div>
+                                <span
+                                    class="material-symbols-outlined ml-auto text-4xl text-primary/20 group-hover:text-primary transition-colors"
+                                    data-icon="precision_manufacturing">precision_manufacturing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div
+                        class="md:col-span-4 bg-surface-container p-8 rounded-lg power-rail flex flex-col justify-between border border-outline-variant/30">
+                        <div>
+                            <div class="flex gap-2 mb-4">
+                                <span
+                                    class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded font-bold">VLM</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 font-headline text-on-background">Neural_Sentry</h3>
+                            <p class="text-on-surface-variant text-sm">Edge-deployed visual language model for real-time
+                                anomaly detection in secure facilities.</p>
+                        </div>
+                        <div class="mt-8 border-t border-outline-variant/40 pt-6">
+                            <p class="text-xs text-on-surface-variant mb-2 font-mono">STABILITY_LOG: 99.98%</p>
+                            <div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="w-[99%] h-full bg-primary"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div
+                        class="md:col-span-4 bg-surface-container-low p-8 rounded-lg power-rail border border-outline-variant/30">
+                        <span class="material-symbols-outlined text-tertiary mb-4"
+                            data-icon="cloud_sync">cloud_sync</span>
+                        <h3 class="text-xl font-bold mb-2 font-headline text-on-background">Cloud_Orchestrator</h3>
+                        <p class="text-on-surface-variant text-xs leading-relaxed mb-6">Kubernetes mesh for scaling ML
+                            models across global edge nodes with automatic failover.</p>
+                        <button
+                            class="text-primary text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all">
+                            Review_Specs <span class="material-symbols-outlined text-sm"
+                                data-icon="north_east">north_east</span>
+                        </button>
+                    </div>
+                    <!-- Project 4 -->
+                    <div
+                        class="md:col-span-8 group bg-surface-container-low p-8 rounded-lg power-rail border border-outline-variant/30 flex items-center gap-8">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-2 font-headline text-on-background">Cogni_Drive // L4
+                                Perception</h3>
+                            <p class="text-on-surface-variant text-sm">Sensor fusion pipeline for autonomous shuttles
+                                utilizing LiDAR, Radar, and HDR-Stereo Vision.</p>
+                            <div class="flex gap-4 mt-6">
+                                <span
+                                    class="text-xs font-mono text-primary px-2 py-1 bg-primary/5 rounded border border-primary/20">LiDAR_FUSION</span>
+                                <span
+                                    class="text-xs font-mono text-primary px-2 py-1 bg-primary/5 rounded border border-primary/20">C++_20</span>
+                            </div>
+                        </div>
+                        <div
+                            class="w-32 h-32 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant/30 group-hover:rotate-6 transition-transform">
+                            <span class="material-symbols-outlined text-5xl text-outline" data-icon="radar">radar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PIPELINE SECTION -->
+        <section class="py-24 px-8 lg:px-20 bg-surface-container-lowest border-y border-outline-variant/20"
+            id="architectures">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <span class="text-primary font-headline text-xs font-bold uppercase tracking-widest">02 //
+                        ARCHITECTURE</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-2 text-on-background tracking-tighter">The Kinetic
+                        Pipeline</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative">
+                    <div
+                        class="hidden lg:block absolute top-1/2 left-0 w-full h-[1px] bg-outline-variant/30 -translate-y-1/2 z-0">
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-white shadow-md rounded-sm border border-outline-variant/30 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-icon="settings_input_component">settings_input_component</span>
+                        </div>
+                        <h4 class="font-headline font-bold text-lg mb-4 text-on-background">Ingestion &amp; Norm</h4>
+                        <p class="text-on-surface-variant text-sm leading-relaxed max-w-[280px]">
+                            Raw sensor data is normalized via high-performance C++ drivers, ensuring jitter-free
+                            ingestion.
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-white shadow-md rounded-sm border border-outline-variant/30 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-icon="psychology">psychology</span>
+                        </div>
+                        <h4 class="font-headline font-bold text-lg mb-4 text-on-background">Neural Inference</h4>
+                        <p class="text-on-surface-variant text-sm leading-relaxed max-w-[280px]">
+                            Asynchronous inference loops using TensorRT engines, optimizing for throughput.
+                        </p>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-white shadow-md rounded-sm border border-outline-variant/30 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-icon="terminal">terminal</span>
+                        </div>
+                        <h4 class="font-headline font-bold text-lg mb-4 text-on-background">Actuation &amp; Log</h4>
+                        <p class="text-on-surface-variant text-sm leading-relaxed max-w-[280px]">
+                            Deterministic logic execution followed by compressed telemetry logging.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- EXPERIMENTAL LAB -->
+        <section class="py-24 px-8 lg:px-20 bg-surface" id="neural-labs">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center gap-4 mb-16">
+                    <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+                    <span class="text-primary font-headline text-xs font-bold uppercase tracking-widest">03 //
+                        EXPERIMENTAL_LAB</span>
+                    <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div
+                        class="aspect-square bg-surface-container-low group relative overflow-hidden flex flex-col items-center justify-center p-6 border border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+                        <span
+                            class="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-all group-hover:-translate-y-2"
+                            data-icon="hub">hub</span>
+                        <p class="mt-4 font-headline font-bold text-xs uppercase text-on-background">Decentralized_NN
+                        </p>
+                        <div class="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span
+                                class="text-[9px] font-mono text-on-surface-variant uppercase tracking-tighter">Researching
+                                P2P training</span>
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-square bg-surface-container-low group relative overflow-hidden flex flex-col items-center justify-center p-6 border border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+                        <span
+                            class="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-all group-hover:-translate-y-2"
+                            data-icon="visibility">visibility</span>
+                        <p class="mt-4 font-headline font-bold text-xs uppercase text-on-background">Subsurface_CV</p>
+                        <div class="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-[9px] font-mono text-on-surface-variant uppercase tracking-tighter">Vision
+                                for turbidity</span>
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-square bg-surface-container-low group relative overflow-hidden flex flex-col items-center justify-center p-6 border border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+                        <span
+                            class="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-all group-hover:-translate-y-2"
+                            data-icon="robot_2">robot_2</span>
+                        <p class="mt-4 font-headline font-bold text-xs uppercase text-on-background">Tactile_Feedback
+                        </p>
+                        <div class="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-[9px] font-mono text-on-surface-variant uppercase tracking-tighter">Haptic
+                                control systems</span>
+                        </div>
+                    </div>
+                    <div
+                        class="aspect-square bg-surface-container-low group relative overflow-hidden flex flex-col items-center justify-center p-6 border border-outline-variant/30 hover:border-primary transition-colors cursor-pointer">
+                        <span
+                            class="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-all group-hover:-translate-y-2"
+                            data-icon="data_exploration">data_exploration</span>
+                        <p class="mt-4 font-headline font-bold text-xs uppercase text-on-background">Synthetic_Sim</p>
+                        <div class="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-[9px] font-mono text-on-surface-variant uppercase tracking-tighter">ODD
+                                simulation scaling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FOOTER -->
+        <footer class="relative w-full py-12 bg-surface border-t border-outline-variant/30">
+            <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-col items-center md:items-start gap-2">
+                    <div class="text-primary font-bold font-['Space_Grotesk'] text-[10px] tracking-widest uppercase">
+                        KINETIC_BLUEPRINT // ALL_RIGHTS_RESERVED
+                    </div>
+                    <div class="text-on-surface-variant font-['Space_Grotesk'] text-[10px] tracking-widest uppercase">
+                        ©2024 ENGINEERED_FOR_PRODUCTION
+                    </div>
+                </div>
+                <div class="flex gap-8">
+                    <a class="text-on-surface-variant hover:text-primary transition-colors font-['Space_Grotesk'] text-[10px] tracking-widest uppercase"
+                        href="#">GitHub_Repo</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors font-['Space_Grotesk'] text-[10px] tracking-widest uppercase"
+                        href="#">System_Status</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors font-['Space_Grotesk'] text-[10px] tracking-widest uppercase"
+                        href="#">Security</a>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-10 h-10 rounded-sm bg-surface-container flex items-center justify-center cursor-pointer hover:bg-primary/10 transition-all border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-on-surface-variant"
+                            data-icon="alternate_email">alternate_email</span>
+                    </div>
+                    <div
+                        class="w-10 h-10 rounded-sm bg-surface-container flex items-center justify-center cursor-pointer hover:bg-primary/10 transition-all border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-on-surface-variant"
+                            data-icon="terminal">terminal</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <!-- Contextual FAB -->
+    <button
+        class="hidden md:flex fixed bottom-8 right-8 z-50 kinetic-gradient w-14 h-14 items-center justify-center rounded-sm shadow-xl scale-95 hover:scale-100 active:scale-90 transition-all">
+        <span class="material-symbols-outlined text-white" data-icon="chat_bubble_outline">chat_bubble_outline</span>
+    </button>
+</body>
+
+</html>
