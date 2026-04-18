@@ -99,6 +99,8 @@ export default function Hero() {
               loop 
               muted 
               playsInline
+              preload="none"
+              poster="/me-placeholder.jpg"
               className="h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] w-auto object-contain drop-shadow-[0_20px_50px_rgba(0,104,89,0.15)]"
             >
               <source src="/me.mp4" type="video/mp4" />
